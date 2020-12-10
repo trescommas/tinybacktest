@@ -1,12 +1,12 @@
 ## tinybacktest
 
-Simple, fast and editable backtest engine written in Rust.
+Fast and hackable backtest engine written in Rust.
 
 ## Getting Started
 
 ### Data structure
 
-tiny-backtest assumes that the .csv file you are using has the following (core) headers <code>["open", "low", "high", "close", "volume", "signals"]</code>.<br>
+The .csv file you are using should have the following __core__ headers <code>["open", "low", "high", "close", "volume", "signal"]</code>.<br>
 
 If you wish to generate signals on-the-fly, you can modify the <code>Dataframe</code> constructor to suit your needs.
 
