@@ -42,7 +42,7 @@ impl DataFrame{
 }
 
 struct Strategy{
-
+    params
 
 }
 
