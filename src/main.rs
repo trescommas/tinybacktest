@@ -1,16 +1,10 @@
 use serde::Deserialize;
-
-#[derive(Deserialize)]
-struct Record{
-	time: u16,
-	prediction: i8,
-	price: u8
-}
+use std::time::{Duration, Instant};
 
 struct DataFrame{
-	time: Vec<u16>,
+	time: Vec<String>,
 	prediction: Vec<i8>,
-	price: Vec<u16>
+	price: Vec<f64>
 }
 
 impl DataFrame{
@@ -25,8 +19,8 @@ impl DataFrame{
 
 	fn push(&mut self, row: &csv::StringRecord){
 		self.time.push(row[0].to_string());
-		self.prediction.push(row[1].to_string());
-		self.price.push(row[2].to_string());
+		self.prediction.push(row[1].to_string().parse::<i8>().unwrap());
+		self.price.push(row[2].to_string().parse::<f64>().unwrap());
 	}
 
 	fn load_csv(path: &str) -> DataFrame {
@@ -35,10 +29,11 @@ impl DataFrame{
 		let mut file_reader = csv::ReaderBuilder::new()
 			.from_reader(file);	
 		
-		let mut dataframe = Dataframe::new();
+		let mut dataframe = DataFrame::new();
 
 		for row in file_reader.records().into_iter() {
-			data_frame.push(&row);
+            let record= row.unwrap();
+			dataframe.push(&record);
 		}
 		
 		return dataframe;
@@ -48,5 +43,9 @@ impl DataFrame{
 
 
 fn main() {
-	let df: DataFrame = DataFrame::load_csv(".trainTHETA-PERP.csv"); 
+    let start = Instant::now();
+	let df: DataFrame = DataFrame::load_csv("/Users/abi/tinybacktest/src/trainTHETA-PERP.csv"); 
+    let duration = start.elapsed();
+
+    println!("Time taken to load csv file {:?}", duration);
 }
