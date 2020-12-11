@@ -16,3 +16,8 @@ If you wish to generate signals on-the-fly, you can modify the <code>Dataframe</
 * Create a <code>Strategy</code> abstract class with strategy logic
 * Create <code>Trade</code> class to define a trade object
 * Implement a simple toy strategy
+
+## Important?
+
+As per the "tiny" in the name, repo should not exceed 1000loc
+
