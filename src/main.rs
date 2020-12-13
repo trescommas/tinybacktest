@@ -41,15 +41,40 @@ impl DataFrame{
 	
 }
 
-struct Strategy{
-    params
-
+// Tracks the stats of each trade item
+struct Trade{
+    entry_price: f64,
+    exit_price: f64,
+    entry_time: Vec<String>,
+    exit_time: Vec<String>,
 }
 
-impl Strategy {
+trait Strategy {
+    fn backtest(&self, df: &DataFrame); // change it to a result struct
+    fn take_profit(&self);
+    fn take_stop_loss(&self);
+    fn check_entry(&self);
+    fn check_exit(&self);
+}
+
+struct BasicStrategy{
+    trades: Vec<Trade>,
+    net_pnl: f64,
+    cost: f64,
+    balance: f64,
+    equity: f64,
+}
+
+impl BasicStrategy{
     
-    fn new() -> Strategy{
-        
+    fn new() -> BasicStrategy{
+        BasicStrategy{
+            trades: Vec::new(),
+            net_pnl: 0.0,
+            cost: 0.0,
+            balance: 0.0,
+            equity: 0.0
+        }
     }
     
     /// The main backtest loop
@@ -72,6 +97,6 @@ fn main() {
     let start = Instant::now();
 	let df: DataFrame = DataFrame::load_csv("/Users/abi/tinybacktest/src/trainTHETA-PERP.csv"); 
     let duration = start.elapsed();
-    backtest(&df);
+    //backtest(&df);
     println!("Time taken to load csv file {:?}", duration);
 }
