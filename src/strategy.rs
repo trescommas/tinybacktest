@@ -16,7 +16,7 @@ pub struct BasicStrategy{
 }
 
 impl BasicStrategy{
-    
+
     fn new() -> BasicStrategy{
         BasicStrategy{
             trades: Vec::new(),
@@ -26,7 +26,7 @@ impl BasicStrategy{
             equity: 0.0
         }
     }
-    
+
     /// The main backtest loop
     ///
     fn backtest(&mut self, df: &DataFrame) -> f64 {
