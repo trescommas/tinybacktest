@@ -13,14 +13,14 @@ cargo run
 
 ### Example
 
-See main.rs for example
+See <code>/src/main.rs</code> 
 
 
 ### Data format 
 
-The .csv file you are using should have the following __core__ headers <code>["open", "low", "high", "close", "volume", "signal"]</code>.<br>
+The .csv file in the example has the following __core__ headers <code>["open", "low", "high", "close", "volume", "signal"]</code>.<br>
 
-If you wish to generate signals on-the-fly, you can modify the <code>Dataframe</code> constructor to suit your needs.
+If your data is different, you can modify the <code>Dataframe</code> struct to suit your needs.
 
 ### TODO
 
