@@ -4,7 +4,19 @@ Fast and hackable backtest engine written in Rust.
 
 ## Getting Started
 
-### Data structure
+### Installation
+
+```bash
+cargo build
+cargo run
+```
+
+### Example
+
+See main.rs for example
+
+
+### Data format 
 
 The .csv file you are using should have the following __core__ headers <code>["open", "low", "high", "close", "volume", "signal"]</code>.<br>
 
