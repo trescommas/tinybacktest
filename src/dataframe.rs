@@ -1,9 +1,9 @@
 use serde::Deserialize;
 
 pub struct DataFrame{
-    time: Vec<String>,
-    prediction: Vec<i8>,
-    price: Vec<f64>
+    pub time: Vec<String>,
+    pub prediction: Vec<i8>,
+    pub price: Vec<f64>
 }
 
 impl DataFrame{
