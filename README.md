@@ -26,7 +26,6 @@ If your data is different, you can modify the <code>Dataframe</code> struct to s
 
 * Add the core backtest loop
 * Create a <code>Strategy</code> abstract class with strategy logic
-* Create <code>Trade</code> class to define a trade object
 * Implement a simple toy strategy
 
 ## Important?
